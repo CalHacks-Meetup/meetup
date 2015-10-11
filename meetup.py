@@ -98,7 +98,7 @@ def timeline():
     messages as well as all the messages of followed users.
     """
     if not g.user:
-        return redirect(url_for('public_timeline'))
+        return redirect(url_for('home'))
     return render_template('timeline.html', messages=query_db('''
         select message.*, user.* from message, user
         where message.author_id = user.user_id and (
@@ -109,13 +109,10 @@ def timeline():
         [session['user_id'], session['user_id'], PER_PAGE]))
 
 
-@app.route('/public')
-def public_timeline():
+@app.route('/home')
+def home():
     """Displays the latest messages of all users."""
-    return render_template('timeline.html', messages=query_db('''
-        select message.*, user.* from message, user
-        where message.author_id = user.user_id
-        order by message.pub_date desc limit ?''', [PER_PAGE]))
+    return render_template('home.html')
 
 
 @app.route('/<username>')
