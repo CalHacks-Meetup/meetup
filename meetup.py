@@ -177,12 +177,20 @@ def add_message():
         flash('Your message was recorded')
     return redirect(url_for('timeline'))
 
+@app.route('/dashboard', methods=['GET'])
+def dashboard():
+  """ main page """
+  return render_template('dashboard.html',
+    pending_events=query_db('''
+      select * from request where author_id = ?
+      ''', [session['user_id']]),
+    requested_events=query_db(''''''))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     """Logs the user in."""
     if g.user:
-        return redirect(url_for('timeline'))
+        return redirect(url_for('dashboard'))
     error = None
     if request.method == 'POST':
         user = query_db('''select * from user where
