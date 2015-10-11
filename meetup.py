@@ -184,7 +184,16 @@ def dashboard():
     pending_events=query_db('''
       select * from request where author_id = ?
       ''', [session['user_id']]),
-    requested_events=query_db(''''''))
+    requested_events=query_db('''
+        select r.* from 
+guest as g, request as r where g.request_id = r.request_id and g.user_id = ?''', [session['user_id']]))
+
+
+@app.route('/meeting/<meetup_id>', methods = ['GET'])
+def meeting(meetup_id):
+    return render_template('confirmation.html', confirmed_event=query_db('''select * from meetup where meetup_id = ?''', [meetup_id]))
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -203,7 +212,7 @@ def login():
         else:
             flash('You were logged in')
             session['user_id'] = user['user_id']
-            return redirect(url_for('timeline'))
+            return redirect(url_for('dashboard'))
     return render_template('login.html', error=error)
 
 
