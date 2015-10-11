@@ -2,6 +2,7 @@
 {% block title %}Sign In{% endblock %}
 {% block content %}
   {% if error %} <div class=error><strong>Error:</strong> {{ error }}</div>{% endif %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
   <div class="container">
     <form action="" method=post>
       <h1>Convene</h1>
