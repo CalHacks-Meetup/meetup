@@ -4,6 +4,19 @@
   <h2>Sign In</h2>
   {% if error %}<div class=error><strong>Error:</strong> {{ error }}</div>{% endif %}
   <form action="" method=post>
+
+    <div class="container">
+        <h1>Convene</h1>
+        
+        <input id="username" type="text" placeholder="Username">
+        <input id="password" type="text" placeholder="Password">
+        
+        <button><a href="./dashboard">Login</a></button>
+        <button id="google" src="../static/google+_signin_buttons/web/2x/btn_google+_signin_dark_pressed_web@2x.png"><img src="../static/google+_signin_buttons/web/2x/btn_google+_signin_dark_pressed_web@2x.png" width="200" height="50" alt="submit" /></button>
+    </div>
+
+
+
     <dl>
       <dt>Username:
       <dd><input type=text name=username size=30 value="{{ request.form.username }}">
