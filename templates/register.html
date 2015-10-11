@@ -1,19 +1,17 @@
 {% extends "layout.html" %}
 {% block title %}Sign Up{% endblock %}
-{% block body %}
-  <h2>Sign Up</h2>
+{% block content %}
   {% if error %}<div class=error><strong>Error:</strong> {{ error }}</div>{% endif %}
+    <div class="container">
   <form action="" method=post>
-    <dl>
-      <dt>Username:
-      <dd><input type=text name=username size=30 value="{{ request.form.username }}">
-      <dt>E-Mail:
-      <dd><input type=text name=email size=30 value="{{ request.form.email }}">
-      <dt>Password:
-      <dd><input type=password name=password size=30>
-      <dt>Password <small>(repeat)</small>:
-      <dd><input type=password name=password2 size=30>
-    </dl>
-    <div class=actions><input type=submit value="Sign Up"></div>
-  </form>
+        <h1>Convene</h1>
+        
+        <input name="email" type="text" placeholder="Email">
+        <input name="username" type="text" placeholder="Username">
+        <input name="password" type="password">
+        <input name="password2" type="password">
+        
+        <input type="submit" class="submit" value="Submit">
+   </form>
+    </div>
 {% endblock %}
