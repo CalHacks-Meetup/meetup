@@ -6,16 +6,28 @@ create table user (
   pw_hash text not null
 );
 
-drop table if exists follower;
-create table follower (
+drop table if exists guest;
+create table guest (
   who_id integer,
-  whom_id integer
+  meetup_id integer
 );
 
-drop table if exists message;
-create table message (
-  message_id integer primary key autoincrement,
+drop table if exists request;
+create table request (
+  request_id integer primary key autoincrement,
+  name text not null,
   author_id integer not null,
-  text text not null,
-  pub_date integer
+  time_range text not null
+);
+
+drop table if exists possible_day;
+create table possible_day (
+  request_id integer,
+  date text not null
+);
+
+drop table if exists meetup;
+create table meetup (
+  meetup_id integer primary key autoincrement,
+  date text not null
 );
