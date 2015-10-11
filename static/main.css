@@ -14,7 +14,6 @@ html {
 }
 button {
     display: block;
-    display: block;
     margin: 10px auto 50px;
     color: white;
     background: #55c2e6;
@@ -41,10 +40,21 @@ header {
     font-size: 20px;
 }
 
-input[type="text"]
-{
+input[type="text"] {
     font-family: 'Oswald', sans-serif;
     border-radius: 2%
+}
+input[type="submit"] {
+  display: block;
+  margin: 10px auto 50px;
+  color: white;
+  background: #55c2e6;
+  border: 3px solid white;
+  border-radius: 10%;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .header-container{

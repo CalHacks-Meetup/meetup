@@ -1,18 +1,63 @@
 {% extends "layout.html" %}
 {% block title %}Sign Up{% endblock %}
-
 {% block content %}
   {% if error %}<div class=error><strong>Error:</strong> {{ error }}</div>{% endif %}
-  <div class="container">
-  <form action="" method=post>
+    <style>
+      h2 {
+        font-weight: 300;
+        color: white;
+        text-transform: uppercase;
+      }
+      input[type="password"]{
+        font-family: 'Oswald', sans-serif;
+        border-radius: 2%;
+      }
+      input {
+        display: block;
+        border: 5px solid #ff9721;
+        height: 30px;
+        width: 350px;
+        font-size: 20px;
+        margin: 5px auto;
+        box-shadow: 0px 1px 0px black;
+      }
+      #google {
+        padding: 0; 
+        border: none;
+        background: none;
+      }
+      body {
+        background-color: #55c2e6;
+      }
+      h1 {
+        font-weight: 400;
+        text-transform: uppercase;
+        color: white;
+        text-shadow: 1px 1px 1px black;
+        background-color: #ff9721;
+        font-size: 64px;
+        letter-spacing: 5px;
+      }
+    </style>
+
+    <div class="container">
+      <form action="" method=post>
+      
+        <button style="margin-right: 20px; text-shadow: 0.5px 0.5px 0.5px black;"><a href="./login">Login</a></button>
+
+    <div class="container">
         <h1>Convene</h1>
-        
-        <input name="email" type="text" placeholder="Email">
-        <input name="username" type="text" placeholder="Username">
-        <input name="password" type="password">
-        <input name="password2" type="password">
-        
-        <input type="submit" class="submit" value="Submit">
+
+        <h2>Register</h2>
+
+        <input id="email" type="text" placeholder="Enter your email">
+        <input id="username" type="text" placeholder="Enter your username">
+        <input id="password1" type="password" placeholder="Enter your password">
+        <input id="password2" type="password" placeholder="Enter your password again">
+
+        <button><a href="./dashboard">Submit</a></button>
+        <button id="google" src="../static/google+_signin_buttons/web/2x/btn_google+_signin_dark_pressed_web@2x.png"><img src="../static/google+_signin_buttons/web/2x/btn_google+_signin_dark_pressed_web@2x.png" width="200" height="50" alt="submit" /></button>
+      </div>
    </form>
     </div>
 {% endblock %}
